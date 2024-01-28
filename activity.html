@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#btn1").click(function(){
+    var name = $("#name"); 
+    $("#name").animate({fontSize: "200px"}).css("text-align", "center");
+    name.css("color", "red");  
+  });
+  $("#btn2").click(function(){
+    var name = $("#name"); 
+    $("#name").animate({fontSize: "100px"});
+    name.css("color", "black");
+  });
+
+  $("#start").click(function(){
+    var age = $("#age");
+    $("#age").animate({fontSize: 100}, 500);
+    $("#age").animate({fontSize: 80}, 500);
+    $("#age").animate({fontSize: 60}, 500);
+    $("#age").animate({fontSize: 40}, 500); 
+    $("#age").animate({fontSize: 20}, 500);
+    
+  });
+  $("#stop").click(function(){
+    $("#age").clearQueue();
+  });
+
+
+  $("#address").click(function(){
+    $("#h1").delay(200).fadeIn().css("text-align", "center");
+    $("#h2").delay(400).fadeIn().css("text-align", "center");
+    $("#h3").delay(800).fadeIn().css("text-align", "center");
+    $("#h4").delay(2000).fadeIn().css("text-align", "center");
+    $("#h5").delay(3000).fadeIn().css("text-align", "center");
+  });
+
+  $("#queue").click(function(){
+    var course = $("#course");
+    course.queue(function(){
+        course.css("color", "red");  
+        course.dequeue();
+    });
+    course.animate({fontSize: 100}, "slow");
+    course.animate({fontSize: 200}, "slow");
+    course.animate({fontSize: 300}, "slow");
+    course.queue(function(){
+        course.css("color", "blue");  
+        course.dequeue();
+    });
+    course.animate({fontSize: 200}, "slow");
+    course.animate({fontSize: 100}, "slow");
+    course.animate({fontSize: 50}, "slow");
+  });
+
+  $("#section").click(function(){
+    $("#m").fadeIn(3000);
+    $("#five").fadeIn(4000);
+    $("#one").fadeIn(5000);
+  });
+});
+</script>
+<style>
+    button {
+        margin: 0;
+        padding: 0;
+        width: 200px;
+        height: 35px;
+        background-color: black;
+        color: white;
+    }
+    button:hover {
+        background-color: gray;
+        border: none
+    }
+</style>
+</head>
+<body>
+
+<h1> 1. Animate Method</h1>
+<button id="btn1">Animate height</button>
+<button id="btn2">Reset height</button>
+<h1 id="name" style="font-size: 100px; text-align: center;">Joshua Gerong</h1>
+
+<h1> 2. ClearQueue Method </h1>
+<button id="start">Start Animation</button>
+<button id="stop">Stop Animation</button>
+<h1 id="age" style="font-size: 100px; text-align: center;">20</h1>
+
+<h1> 3. Delay Method </h1>
+<button id="address">Click to reveal my address</button>
+<br><br>
+<h1 id="h1" style="display: none;"> NPC Line </h1>
+<h1 id="h2" style="display: none;"> Reform </h1>
+<h1 id="h3" style="display: none;"> 168 </h1>
+<h1 id="h4" style="display: none;"> Deparo </h1>
+<h1 id="h5" style="display: none;"> Caloocan City </h1>
+
+<h1> 4. Dequeue Method </h1>
+<p><button id="queue">Start Animation</button></p>
+<h1 id="course" style="text-align: center; font-size: 50px;"> BSIT </h1>
+
+<h1> 5. FadeIn Method </h1>
+<button id="section">Click to reveal my section </button>
+<div style="display: flex; flex-direction: row; width: 100%; align-items: center; justify-content: center; align-content: center;">
+    <h1 id="m" style="display: none; font-size: 50px;"> M </h1>
+    <h1 id="five" style="display: none; font-size: 50px;"> 5 </h1>
+    <h1 id="one" style="display: none; font-size: 50px;"> 1 </h1>
+</div>
+</body>
+</html>
